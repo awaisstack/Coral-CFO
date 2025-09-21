@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CFO Agent — Subscription Audit</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background:#0d1117;
+      color:#e6edf3;
+      margin:20px;
+    }
+    h1 { color:#58a6ff; margin-bottom:20px; }
+    .grid { display:flex; flex-wrap:wrap; gap:20px; }
+    .card {
+      background:#161b22;
+      padding:15px;
+      border-radius:10px;
+      flex:1 1 45%;
+      min-width:300px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      max-height:400px;
+      overflow:auto;
+    }
+    h2 { margin-top:0; font-size:1.2em; border-bottom:1px solid #30363d; padding-bottom:4px; }
+    pre {
+      background:#0d1117;
+      padding:10px;
+      border-radius:6px;
+      overflow-x:auto;
+      white-space:pre-wrap;
+      word-break:break-word;
+    }
+    ul { padding-left:20px; margin:0; }
+    .cancel li { color:#ff7b72; }
+    .steps li { margin-bottom:5px; }
+  </style>
+</head>
+<body>
+  <h1>📊 CFO Agent — Subscription Audit</h1>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Status</h2>
+      <div id="status"></div>
+    </div>
+
+    <div class="card">
+      <h2>First 5 Transactions</h2>
+      <pre id="transactions"></pre>
+    </div>
+
+    <div class="card">
+      <h2>Sample Scored Subscriptions</h2>
+      <pre id="scored"></pre>
+    </div>
+
+    <div class="card">
+      <h2>❌ Cancellation Recommendations</h2>
+      <ul id="cancel-list" class="cancel"></ul>
+    </div>
+
+    <div class="card" style="flex:1 1 100%;">
+      <h2>🤖 AI Suggested Actions</h2>
+      <pre id="llm-json"></pre>
+    </div>
+
+    <div class="card" style="flex:1 1 100%;">
+      <h2>📌 Suggested Next Steps</h2>
+      <ul id="steps" class="steps"></ul>
+    </div>
+  </div>
+
+<script>
+  const statusDiv = document.getElementById("status");
+  const txDiv = document.getElementById("transactions");
+  const scoredDiv = document.getElementById("scored");
+  const cancelList = document.getElementById("cancel-list");
+  const llmJson = document.getElementById("llm-json");
+  const stepsList = document.getElementById("steps");
+
+  let capturingLLM = false;
+  let llmBuffer = [];
+
+  function addStatus(msg) {
+    const div = document.createElement("div");
+    div.textContent = msg;
+    statusDiv.appendChild(div);
+  }
+
+  function flushLLM() {
+    if (llmBuffer.length > 0) {
+      let jsonStr = llmBuffer.join("\n").replace(/json|/g,"").trim();
+      try {
+        llmJson.textContent = JSON.stringify(JSON.parse(jsonStr), null, 2);
+      } catch {
+        llmJson.textContent = jsonStr;
+      }
+      llmBuffer = [];
+    } else {
+      llmJson.textContent = "No AI actions found.";
+    }
+  }
+
+  async function startSession() {
+    addStatus("⚡ Creating Coral session...");
+    try {
+      const res = await fetch("/search", { method: "POST" });
+      const data = await res.json();
+
+      if (!data.ok) {
+        addStatus("❌ Failed to create Coral session: " + data.error);
+        return;
+      }
+
+      const sessionId = data.result.sessionId;  // make sure this matches Flask’s response
+      addStatus("✅ Created session: " + sessionId);
+
+      const wsUrl = `ws://127.0.0.1:5555/ws/v1/debug/app/priv/${sessionId}/hello-agent/logs`;
+
+      const ws = new WebSocket(wsUrl);
+
+      ws.onopen = () => addStatus("✅ Connected to CFO Agent logs...");
+      ws.onclose = () => {
+        addStatus("❌ Disconnected from CFO Agent logs.");
+        if (llmJson.textContent.trim() === "") {
+          llmJson.textContent = "No AI actions found.";
+        }
+      };
+
+      ws.onmessage = (event) => {
+        try {
+          const data = JSON.parse(event.data);
+          if (data.type !== "log") return;
+
+          const msg = data.message;
+
+          // Transactions
+          if (msg.includes("Loaded transactions (first 5 rows):") || msg.match(/^\d+\s+/)) {
+            txDiv.textContent += msg + "\n";
+          }
+
+          // Scored subs
+          else if (msg.startsWith("Sample scored subscriptions")) {
+            scoredDiv.textContent = "";
+          } else if (msg.includes("Decision=cancel") || msg.includes("Decision=keep")) {
+            scoredDiv.textContent += msg + "\n";
+          }
+
+          // Cancel Recommendations
+          else if (msg.includes("RECOMMENDATION: CANCEL")) {
+            const li = document.createElement("li");
+            li.textContent = msg;
+            cancelList.appendChild(li);
+          }
+
+          // LLM JSON
+          else if (msg.includes("LLM Explanation")) {
+            capturingLLM = true;
+            llmBuffer = [];
+          } else if (capturingLLM) {
+            if (msg.includes("Suggested next steps:")) {
+              flushLLM();
+              capturingLLM = false;
+            } else {
+              llmBuffer.push(msg);
+            }
+          }
+
+          // Next steps
+          else if (msg.startsWith("Suggested next steps:")) {
+            stepsList.innerHTML = "";
+          } else if (/^\d\)/.test(msg.trim())) {
+            const li = document.createElement("li");
+            li.textContent = msg.replace(/^\d\)\s*/,"");
+            stepsList.appendChild(li);
+          }
+
+          // General info
+          else if (!msg.includes("DEBUG")) {
+            addStatus(msg);
+          }
+
+        } catch (err) {
+          addStatus("Raw: " + event.data);
+        }
+      };
+    } catch (e) {
+      addStatus("❌ Error creating session: " + e.message);
+    }
+  }
+
+  startSession();
+</script>
+
+</body>
+</html>

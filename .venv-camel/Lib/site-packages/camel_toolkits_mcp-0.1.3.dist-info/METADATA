@@ -1,0 +1,224 @@
+Metadata-Version: 2.4
+Name: camel-toolkits-mcp
+Version: 0.1.3
+Summary: A server that exports Camel toolkits as MCP-compatible tools
+Author-email: Xiaotian Jin <xiaotian.jin@eigent.ai>
+License: MIT
+Project-URL: Homepage, https://github.com/MuggleJinx/Camel-toolkits-mcp
+Project-URL: Bug Tracker, https://github.com/MuggleJinx/Camel-toolkits-mcp/issues
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: camel-ai>=0.2.58
+Requires-Dist: mcp[cli]>=1.8.1
+Requires-Dist: numpy
+Requires-Dist: beautifulsoup4<5,>=4
+Requires-Dist: docx2txt<0.9,>=0.8
+Requires-Dist: PyMuPDF<2,>=1.22.5
+Requires-Dist: unstructured==0.16.20
+Requires-Dist: pandasai<3,>=2.3.0
+Requires-Dist: wikipedia<2,>=1
+Requires-Dist: linkup-sdk<0.3,>=0.2.1
+Requires-Dist: duckduckgo-search<7,>=6.3.5
+Requires-Dist: newspaper3k<0.3,>=0.2.8
+Requires-Dist: wolframalpha<6,>=5.0.0
+Requires-Dist: sympy<2,>=1.13.3
+Requires-Dist: pyowm<4,>=3.3.0
+Requires-Dist: googlemaps<5,>=4.10.0
+Requires-Dist: google-api-python-client==2.166.0
+Requires-Dist: google-auth-httplib2==0.2.0
+Requires-Dist: google-auth-oauthlib==1.2.1
+Requires-Dist: requests_oauthlib<2,>=1.3.1
+Requires-Dist: fastapi>=0.115.11
+Requires-Dist: rouge<2,>=1.0.1
+Requires-Dist: e2b-code-interpreter<2,>=1.0.3
+Requires-Dist: firecrawl-py<2,>=1.0.0
+Requires-Dist: arxiv<3,>=2.1.3
+Requires-Dist: arxiv2text<0.2,>=0.1.14
+Requires-Dist: imageio[pyav]<3,>=2.34.2
+Requires-Dist: pillow<11.0.0,>=10.1.0
+Requires-Dist: slack-sdk<4,>=3.27.2
+Requires-Dist: slack-bolt<2,>=1.20.1
+Requires-Dist: pygithub<3,>=2.6.0
+Requires-Dist: discord.py<3,>=2.3.2
+Requires-Dist: scholarly==1.7.11
+Requires-Dist: notion-client<3,>=2.2.1
+Requires-Dist: yt-dlp<2025,>=2024.11.4
+Requires-Dist: ffmpeg-python<0.3,>=0.2.0
+Requires-Dist: datacommons<2,>=1.4.3
+Requires-Dist: datacommons_pandas<0.0.4,>=0.0.3
+Requires-Dist: tavily-python<0.6,>=0.5.0
+Requires-Dist: apify_client<2,>=1.8.1
+Requires-Dist: stripe<12,>=11.3.0
+Requires-Dist: pandas<2,>=1.5.3
+Requires-Dist: tree-sitter-python<0.24,>=0.23.6
+Requires-Dist: tree-sitter<0.24,>=0.23.2
+Requires-Dist: networkx<4,>=3.4.2
+Requires-Dist: rank-bm25<0.3,>=0.2.2
+Requires-Dist: litellm<2,>=1.38.1
+Requires-Dist: anthropic<0.50.0,>=0.47.0
+Requires-Dist: playwright>=1.50.0
+Requires-Dist: html2text>=2024.2.26
+Requires-Dist: docx>=0.2.4
+Requires-Dist: fpdf>=1.7.2
+Requires-Dist: typer>=0.15.2
+Requires-Dist: mem0ai>=0.1.67
+Requires-Dist: math-verify<0.8,>=0.7.0
+Requires-Dist: exa-py<2,>=1.10.0
+Requires-Dist: crawl4ai>=0.3.745
+Requires-Dist: pyautogui<0.10,>=0.9.54
+Requires-Dist: google-genai>=1.13.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: isort>=5.12.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: build>=0.10.0; extra == "dev"
+Requires-Dist: twine>=4.0.2; extra == "dev"
+
+# Camel Toolkits MCP
+
+A lightweight server that exports [Camel](https://github.com/camel-ai/camel) framework toolkits as MCP-compatible tools.
+
+## Overview
+
+This project bridges the gap between the Camel AI framework's toolkit ecosystem and MCP (Model Control Protocol) compatible clients. It allows you to dynamically load and expose any Camel toolkit as an MCP server, making these tools available to a wide range of LLM-based applications.
+
+Key features:
+- Dynamically discover and list available Camel toolkits
+- Load and execute toolkit functions at runtime
+- Seamless conversion of Camel toolkit functions to MCP-compatible tools
+
+## Installation
+
+You can install the package directly from PyPI:
+
+```bash
+pip install camel-toolkits-mcp
+```
+
+Or install from source:
+
+```bash
+git clone https://github.com/jinx0a/camel-toolkits-mcp.git
+cd camel-toolkits-mcp
+pip install -e .
+```
+
+## Config with MCP clients
+
+### Using with uvx
+
+You can easily configure uvx to run the Camel toolkits server like this:
+
+```json
+{
+  "mcpServers": {
+    "camel-toolkits": {
+      "command": "uvx",
+      "args": [
+        "camel-toolkits-mcp"
+      ],
+      "env": {
+        "OPENAI_API_KEY": "your-openai-key",
+        "NOTION_TOKEN": "your-notion-token",
+        "..." : "..."
+      }
+    }
+  }
+}
+```
+
+### Local Development Configuration
+
+If you're developing this package locally, you can configure UVX to use your development version:
+
+```json
+{
+  "mcpServers": {
+    "camel_toolkits_mcp": {
+      "command": "/path/to/python",
+      "args": [
+        "/path/to/camel_toolkits_mcp/server.py"
+      ],
+      "env": {
+        "OPENAI_API_KEY": "your-openai-key",
+        "NOTION_TOKEN": "your-notion-token",
+        "..." : "..."
+      }
+    }
+  }
+}
+```
+
+## Available Tools
+
+The server exposes the following MCP-compatible tools:
+
+- `get_toolkits_list()`: Lists all available Camel toolkits with their descriptions
+- `list_toolkit_functions(toolkit_name, include_methods=True)`: Lists all functions available in a specific toolkit
+- `execute_toolkit_function(toolkit_name, function_name, toolkit_params=None, function_args=None)`: Executes a specific function from a toolkit
+
+### Example: Using Tools
+
+```python
+# First, discover available toolkits
+toolkits = get_toolkits_list()
+print(toolkits)  # Shows all available toolkits
+
+# List functions in a specific toolkit (e.g., NotionToolkit)
+functions = list_toolkit_functions(toolkit_name="NotionToolkit")
+
+# Execute a toolkit function
+result = execute_toolkit_function(
+    toolkit_name="NotionToolkit",
+    function_name="search_pages",
+    toolkit_params={"notion_token": "your-notion-token"},
+    function_args={"query": "meeting notes"}
+)
+```
+
+## Architecture
+
+The router works by:
+1. Scanning the Camel framework's toolkit directory
+2. Analyzing each toolkit class to detect its tools and API requirements
+3. Creating proper MCP-compatible wrappers for each tool function
+4. Exposing these functions through the FastMCP server
+
+## Supported Toolkits
+
+This server supports all toolkits in the Camel framework, including:
+- NotionToolkit
+- OpenAIToolkit
+- WebSearchToolkit
+- And many more...
+
+## API Key Management
+
+For toolkits requiring API keys (like Notion, OpenAI, etc.), you should provide them in the environment variables when configuring the MCP server.
+
+## Development
+
+To set up a development environment:
+
+```bash
+pip install -e ".[dev]"
+```
+
+Run tests:
+
+```bash
+pytest
+```
+
+## Contributing
+
+Contributions are welcome! The project uses GitHub Actions for CI/CD:
+
+1. Tests are run automatically on pull requests
+2. New releases are automatically published to PyPI when a GitHub release is created
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

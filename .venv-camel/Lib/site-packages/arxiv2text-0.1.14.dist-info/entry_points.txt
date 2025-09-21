@@ -1,0 +1,2 @@
+[console_scripts]
+arxiv2text = arxiv2text.cli:main
