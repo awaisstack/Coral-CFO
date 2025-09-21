@@ -1,0 +1,101 @@
+subscription_id,vendor,plan,amount,currency,frequency,start_date,last_charge_date,last_used_date,usage_count,uses_per_month,is_automatic,category,notes
+SUB0001,Netflix,Standard,13.99,USD,monthly,2019-06-15,2025-08-01,2025-07-25,120,4,true,entertainment,shared family plan
+SUB0002,Spotify,Premium,9.99,USD,monthly,2018-03-20,2025-08-05,2025-08-05,400,13,true,entertainment,personal
+SUB0003,Adobe Creative Cloud,All Apps,54.99,USD,monthly,2020-01-10,2025-07-28,2025-07-28,60,2,true,productivity,used for design work
+SUB0004,Dropbox,Plus,11.99,USD,monthly,2017-11-02,2025-08-03,2025-07-01,85,3,true,storage,backup rarely updated
+SUB0005,Zoom,Pro,14.99,USD,monthly,2021-05-01,2025-08-02,2025-06-10,15,0.5,true,communication,meetings monthly
+SUB0006,Microsoft 365,Family,69.99,USD,yearly,2022-09-12,2024-09-12,2025-06-15,200,6,true,productivity,auto-renew yearly
+SUB0007,GitHub,Pro,4.00,USD,monthly,2020-04-01,2025-07-30,2025-07-30,55,1.8,true,development,personal account
+SUB0008,Slack,Standard,8.00,USD,monthly,2019-08-15,2025-07-01,2025-07-01,30,1,true,communication,team workspace
+SUB0009,Notion,Personal Pro,4.00,USD,monthly,2021-02-10,2025-08-01,2025-07-20,75,2.5,true,productivity,note taking
+SUB0010,Evernote,Premium,7.99,USD,monthly,2016-12-05,2025-07-29,2024-12-31,12,0.3,true,productivity,almost unused
+SUB0011,Grammarly,Premium,12.00,USD,monthly,2020-06-18,2025-08-04,2025-08-04,300,10,true,productivity,writing assistant
+SUB0012,Hulu,No Ads,14.99,USD,monthly,2019-09-10,2025-07-20,2025-07-19,90,3,true,entertainment,watch occasionally
+SUB0013,Disney+,Standard,7.99,USD,monthly,2020-11-01,2025-08-05,2025-07-30,50,2,true,entertainment,shared login
+SUB0014,Apple Music,Individual,10.99,USD,monthly,2018-05-20,2025-08-02,2025-07-31,220,7,true,entertainment,active use
+SUB0015,Audible,Plus,7.95,USD,monthly,2017-07-12,2025-08-01,2025-06-02,18,0.6,true,entertainment,rarely used
+SUB0016,Xbox Game Pass,Ultimate,16.99,USD,monthly,2021-10-05,2025-07-30,2025-07-29,40,1.3,true,gaming,used sometimes
+SUB0017,PlayStation Plus,Premium,59.99,USD,yearly,2022-03-01,2025-03-01,2024-11-01,5,0.2,true,gaming,renewed yearly
+SUB0018,Steam Wallet,Auto Topup,20.00,USD,monthly,2020-12-01,2025-08-01,2025-07-01,1,0.03,false,gaming,one-off topups sometimes
+SUB0019,Canva,Pro,12.95,USD,monthly,2019-04-08,2025-07-28,2025-07-28,25,0.8,true,productivity,used for social graphics
+SUB0020,Figma,Professional,12.00,USD,monthly,2020-02-14,2025-07-25,2025-07-25,10,0.3,true,design,team license
+SUB0021,Trello,Business,9.99,USD,monthly,2018-10-01,2025-07-30,2023-09-01,2,0.1,true,productivity,team stopped using
+SUB0022,Asana,Premium,10.99,USD,monthly,2019-01-05,2025-07-31,2024-10-15,8,0.25,true,productivity,low usage
+SUB0023,Coursera,Plus,59.99,USD,monthly,2021-06-01,2025-07-15,2025-06-20,6,0.2,true,education,occasional course
+SUB0024,Udemy,Pro,19.99,USD,monthly,2022-05-10,2025-08-01,2025-07-01,4,0.13,false,education,buy courses occasionally
+SUB0025,LinkedIn Learning,Monthly,29.99,USD,monthly,2020-08-18,2025-08-03,2025-07-28,12,0.4,true,education,used for training
+SUB0026,Stripe,Connect,0.00,USD,monthly,2019-03-11,2025-07-30,2025-07-30,1200,40,true,services,transaction fees added
+SUB0027,Shopify,Basic,29.00,USD,monthly,2018-09-01,2025-07-01,2025-06-01,200,6.7,true,ecommerce,active store
+SUB0028,QuickBooks,Online,25.00,USD,monthly,2017-02-20,2025-07-10,2025-07-09,150,5,true,accounting,core business tool
+SUB0029,FreshBooks,Plus,15.00,USD,monthly,2021-11-11,2025-07-30,2025-05-01,10,0.3,true,accounting,duplicate of QuickBooks
+SUB0030,Zoom Basic,Free,0.00,USD,monthly,2020-01-01,2025-07-01,2025-07-01,0,0,false,communication,free tier
+SUB0031,Google Workspace,Business Starter,6.00,USD,monthly,2016-06-01,2025-08-03,2025-07-21,500,16.7,true,productivity,email & docs
+SUB0032,AWS,EC2,120.00,USD,monthly,2015-05-01,2025-08-01,2025-08-01,9999,333.3,true,infrastructure,variable usage
+SUB0033,DigitalOcean,Droplet,40.00,USD,monthly,2018-07-01,2025-07-30,2025-07-30,300,10,true,infrastructure,hosting
+SUB0034,Heroku,Hobby,7.00,USD,monthly,2019-10-10,2025-07-25,2025-07-25,20,0.7,true,infrastructure,low resources
+SUB0035,Linode,Standard,30.00,USD,monthly,2017-01-01,2025-07-20,2025-06-20,12,0.4,true,infrastructure,backup instance
+SUB0036,Cloudflare,Pro,20.00,USD,monthly,2018-08-08,2025-08-02,2025-08-02,800,26.7,true,infrastructure,CDN usage
+SUB0037,NordVPN,Standard,11.99,USD,monthly,2019-03-03,2025-07-30,2025-07-29,300,10,true,security,always on
+SUB0038,ProtonVPN,Plus,5.00,USD,monthly,2021-09-01,2025-07-31,2024-01-01,0,0,true,security,unused replacement
+SUB0039,LastPass,Families,3.00,USD,monthly,2016-06-15,2025-07-28,2025-07-28,120,4,true,security,password manager
+SUB0040,1Password,Individual,2.99,USD,monthly,2023-02-01,2025-07-30,2025-07-30,50,1.7,true,security,secondary account
+SUB0041,Instapaper,Premium,2.99,USD,monthly,2015-12-01,2025-07-01,2020-01-01,0,0,true,reading,unused
+SUB0042,Medium,Membership,5.00,USD,monthly,2017-04-01,2025-07-05,2025-06-30,10,0.33,true,reading,occasional articles
+SUB0043,Substack,Premium,3.99,USD,monthly,2020-11-11,2025-08-01,2025-07-30,6,0.2,true,reading,some newsletters
+SUB0044,Patreon,Creator Support,5.00,USD,monthly,2018-05-05,2025-07-20,2025-07-20,8,0.27,true,donations,small recurring pledges
+SUB0045,Bumble,Premium,12.99,USD,monthly,2019-01-01,2025-07-10,2024-09-01,0,0,true,social,subscription expired
+SUB0046,Tinder,Plus,9.99,USD,monthly,2018-02-15,2025-07-08,2023-02-01,0,0,true,social,unused
+SUB0047,DoorDash+,Membership,9.99,USD,monthly,2020-04-04,2025-08-02,2025-07-28,3,0.1,true,food,rarely used
+SUB0048,Uber One,Membership,9.99,USD,monthly,2021-07-07,2025-07-30,2025-07-30,20,0.7,true,transport,used occasionally
+SUB0049,Lyft Pink,Membership,4.99,USD,monthly,2021-09-09,2025-07-15,2024-05-01,0,0,true,transport,not used
+SUB0050,Postmates+,Subscription,7.99,USD,monthly,2019-11-11,2025-07-10,2023-12-01,0,0,true,food,service merged
+SUB0051,HelloFresh,Classic Box,89.00,USD,weekly,2020-01-10,2025-07-28,2025-07-28,52,4,true,food,weekly deliveries
+SUB0052,Blue Apron,2P Plan,69.99,USD,weekly,2019-06-06,2025-07-21,2025-06-15,10,0.4,true,food,paused occasionally
+SUB0053,BarkBox,Deluxe,35.00,USD,monthly,2018-03-03,2025-07-01,2025-06-01,6,0.2,true,pets,used
+SUB0054,Dollar Shave Club,Monthly,9.00,USD,monthly,2017-08-08,2025-07-29,2025-07-01,8,0.25,true,personal,auto-ship
+SUB0055,Soothe,Massage Credits,49.99,USD,monthly,2021-12-01,2025-05-01,2024-01-01,0,0,false,wellness,rare
+SUB0056,Calm,Premium,69.99,USD,yearly,2019-01-01,2025-01-01,2025-01-01,18,0.6,true,wellness,used for meditation
+SUB0057,Headspace,Annual,69.99,USD,yearly,2020-02-02,2024-02-02,2023-04-01,2,0.07,true,wellness,renew yearly
+SUB0058,Peloton,App,12.99,USD,monthly,2019-09-09,2025-07-30,2025-07-30,25,0.8,true,fitness,active user
+SUB0059,ClassPass,Membership,39.00,USD,monthly,2022-03-03,2025-07-31,2025-07-01,2,0.07,true,fitness,low usage
+SUB0060,Fitbit Premium,Monthly,7.99,USD,monthly,2021-01-01,2025-07-25,2025-06-01,3,0.1,true,fitness,low use features
+SUB0061,Strava,Premium,5.00,USD,monthly,2018-07-07,2025-07-18,2025-07-15,120,4,true,fitness,regular runner
+SUB0062,MyFitnessPal,Premium,9.99,USD,monthly,2017-05-05,2025-07-20,2025-07-19,60,2,true,fitness,log food regularly
+SUB0063,iCloud,2TB,9.99,USD,monthly,2016-10-10,2025-08-01,2025-07-29,400,13.3,true,storage,photo backup
+SUB0064,Google One,2TB,9.99,USD,monthly,2019-08-08,2025-07-30,2025-07-30,200,6.7,true,storage,shared drive
+SUB0065,Box,Business,15.00,USD,monthly,2018-04-04,2025-07-01,2024-01-01,1,0.03,true,storage,old account
+SUB0066,Zapier,Professional,20.00,USD,monthly,2020-12-12,2025-07-28,2025-07-28,150,5,true,automation,integrations used
+SUB0067,IFTTT,Pro,3.99,USD,monthly,2019-05-05,2025-07-25,2025-03-01,2,0.07,true,automation,rare applets
+SUB0068,Mailchimp,Standard,14.00,USD,monthly,2017-02-02,2025-07-30,2025-07-30,40,1.3,true,marketing,email campaigns
+SUB0069,SendGrid,Essentials,15.00,USD,monthly,2018-01-01,2025-07-20,2025-07-19,10000,333.3,true,marketing,transactional emails
+SUB0070,Sentry,Team,26.00,USD,monthly,2021-04-04,2025-07-31,2025-07-30,500,16.7,true,devops,error monitoring
+SUB0071,Datadog,Pro,15.00,USD,monthly,2016-09-09,2025-07-15,2025-07-10,800,26.7,true,devops,critical metrics
+SUB0072,New Relic,Standard,0.00,USD,monthly,2016-10-10,2025-07-01,2024-05-01,0,0,true,devops,free tier
+SUB0073,Sentry (old),Legacy,30.00,USD,monthly,2015-05-05,2024-12-01,2022-11-01,0,0,true,devops,legacy duplicate
+SUB0074,Zoom Recording,Cloud Storage,40.00,USD,monthly,2021-07-07,2025-07-29,2025-07-29,12,0.4,true,storage,recordings used occasionally
+SUB0075,Salesforce,Essentials,25.00,USD,monthly,2019-03-03,2025-08-01,2025-07-20,80,2.7,true,crm,core business
+SUB0076,Intercom,Pro,49.00,USD,monthly,2018-11-11,2025-07-25,2025-07-25,60,2,true,crm,customer support
+SUB0077,Segment,Team,120.00,USD,monthly,2017-06-06,2025-07-01,2025-06-01,5,0.17,true,analytics,low events
+SUB0078,Hotjar,Plus,99.00,USD,monthly,2020-10-10,2025-07-30,2025-07-30,20,0.67,true,analytics,used occasionally
+SUB0079,Ahrefs,Standard,99.00,USD,monthly,2019-02-02,2025-07-31,2025-07-31,3,0.1,true,seo,rarely used
+SUB0080,Semrush,Pro,119.95,USD,monthly,2018-01-01,2025-07-28,2025-07-28,2,0.07,true,seo,expensive low ROI
+SUB0081,Calendly,Pro,8.00,USD,monthly,2020-03-03,2025-07-29,2025-07-28,30,1,true,productivity,used for scheduling
+SUB0082,Typeform,Pro,35.00,USD,monthly,2019-05-05,2025-07-30,2025-07-30,10,0.33,true,forms,occasional surveys
+SUB0083,PagerDuty,Standard,19.00,USD,monthly,2016-12-12,2025-07-01,2025-06-15,3,0.1,true,ops,incident alerts
+SUB0084,Stripe Radar,Advanced,25.00,USD,monthly,2018-06-06,2025-07-15,2025-07-14,400,13.3,true,security,fraud protection
+SUB0085,Cloudinary,Plus,89.00,USD,monthly,2020-09-09,2025-07-20,2025-07-20,50,1.7,true,media,CDN processed images
+SUB0086,Zoom Webinar,Add-on,79.00,USD,monthly,2021-01-01,2025-07-20,2025-06-20,0,0,true,events,rare webinars
+SUB0087,Zendesk,Support,49.00,USD,monthly,2017-08-08,2025-07-25,2025-07-25,25,0.8,true,crm,used by support
+SUB0088,HubSpot,Starter,45.00,USD,monthly,2019-09-01,2025-07-30,2025-07-01,12,0.4,true,crm,marketing features
+SUB0089,Amazon Prime,Prime,14.99,USD,monthly,2015-05-15,2025-08-02,2025-07-30,300,10,true,entertainment,frequent deliveries
+SUB0090,Prime Video,Channels,2.99,USD,monthly,2021-11-11,2025-07-28,2025-07-20,1,0.03,true,entertainment,rarely used add-on
+SUB0091,HBO Max,Standard,14.99,USD,monthly,2020-05-05,2025-07-15,2025-06-01,4,0.13,true,entertainment,low usage
+SUB0092,Sky,Entertainment,29.99,USD,monthly,2014-12-01,2025-01-01,2023-06-01,0,0,true,entertainment,outdated region
+SUB0093,VPN Pro (Alt),Annual,59.99,USD,yearly,2023-04-01,2024-04-01,2023-10-01,1,0.03,true,security,annual plan
+SUB0094,VideoTool,Starter,5.99,USD,monthly,2022-06-06,2025-07-30,2025-06-25,0,0,true,tools,rarely used
+SUB0095,DocsAI,Pro,49.99,USD,monthly,2023-01-01,2025-07-31,2025-07-30,3,0.1,true,ai,low usage
+SUB0096,AI-Analysis,Enterprise,599.99,USD,monthly,2022-02-02,2025-07-31,2025-07-31,1,0.03,true,ai,very expensive single feature
+SUB0097,AnalyticsPro,Starter,29.99,USD,monthly,2019-10-10,2025-07-15,2025-07-01,6,0.2,true,analytics,low usage by team
+SUB0098,BackupPro,Unlimited,9.99,USD,monthly,2018-11-11,2025-07-30,2025-07-30,250,8.3,true,backup,active
+SUB0099,MusicServiceX,Family,19.99,USD,monthly,2020-06-06,2025-07-30,2025-07-30,90,3,true,entertainment,shared family
+SUB0100,ObscureTool,Legacy,4.99,USD,monthly,2015-03-03,2024-01-01,2021-01-01,0,0,true,legacy,forgotten subscription

@@ -1,0 +1,10 @@
+[agent]
+name = "hello-agent"
+version = "0.1.0"
+description = "A simple agent that responds with Hello World"
+
+[options] # even if empty
+# You can leave this empty or add dummy options if needed
+
+[runtimes.executable]
+command = ["python", "main.py"] 
